@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-cn">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="/">
+    
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        
+        <script data-main="js/main" src="bower_components/requirejs/require.js"></script>
+    </head>
+    
+    <body  ng-controller="MainCtrl" >
+        <div class="container">
+            
+            <div class="row">
+                
+                <h1>按工号查询信息</h1>
+                
+                <form name="queryUserForm" class="form-inline">
+                    <div class="form-group">
+
+                        <label for="id">工号</label>
+                        <input type="text" ng-model="queryId" class="form-control" id="id" placeholder="工号">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" ng-click="query(queryId)">查询</button>
+
+                </form>
+            </div>
+            <div class="row" ng-model="curUser" >
+                
+                <p ng-hide="ready">查询中</p>
+                <div ng-show="curUser">
+                    <h2>查询结果：</h2>
+                    <p>工号：{{curUser.id}}</p>
+                    <p>姓名：{{curUser.name}}</p>
+                    <p>部门：{{curUser.department}}</p>
+                    <p>剩余假期：{{curUser.holiday}}</p>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+    </body>
+</html>
